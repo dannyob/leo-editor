@@ -5,6 +5,10 @@
 #### Build Setup
 
 ``` bash
+
+# Run the following commands from leo/proto/Vitalije/leo-el-vue
+cd leo/proto/Vitalije/leo-el-vue
+
 # install dependencies
 npm install
 
