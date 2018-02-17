@@ -22,11 +22,15 @@ def proto_leo_el_vue(event):
     c = event and event.get('c')
     base_dir = g.os_path_finalize_join(g.app.loadDir,
         '..', 'proto', 'Vitalije', 'leo-el-vue')
-    commands = [
-        # 'npm install',
-        '&npm run dev',
-    ]
-    g.runExternalCommands(c, base_dir=base_dir, commands=commands)
+    g.execute_shell_commands_with_options(
+        c = c,
+        base_dir=base_dir,
+        commands = ['&npm run dev',],
+        command_setting = 'leo-el-vue-commands',
+            # @data leo-el-vue-commands
+        path_setting= 'leo-el-vue-base',
+            # @string leo-el-vue-base
+    )
 #@+node:ekr.20180217093505.1: ** @g.command('leoserver')
 @g.command('leoserver')
 @g.command('proto-leo-server')
