@@ -24,7 +24,7 @@ def leo_el_vue(event):
         '..', 'proto', 'Vitalije', 'leo-el-vue')
     base = base.replace('\\','/')
     commands = [
-        'npm install',
+        # 'npm install',
         'npm run dev',
     ]
     if g.os_path_exists(base):
