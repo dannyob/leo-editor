@@ -19,19 +19,14 @@ def proto_leo_el_vue(event):
     
     Original sources and documentation at: https://leoelvue.computingart.net/home
     '''
-    # c = event and event.get('c')
-    base = g.os_path_finalize_join(g.app.loadDir,
+    c = event and event.get('c')
+    base_dir = g.os_path_finalize_join(g.app.loadDir,
         '..', 'proto', 'Vitalije', 'leo-el-vue')
-    base = base.replace('\\','/')
     commands = [
         # 'npm install',
         '&npm run dev',
     ]
-    if g.os_path_exists(base):
-        os.chdir(base) # Can't do this in the commands list.
-        g.execute_shell_commands(commands)
-    else:
-        g.es_print('not found: %r' % base)
+    g.runExternalCommands(c, base_dir=base_dir, commands=commands)
 #@+node:ekr.20180217093505.1: ** @g.command('leoserver')
 @g.command('leoserver')
 @g.command('proto-leo-server')

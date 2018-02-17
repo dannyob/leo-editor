@@ -6929,6 +6929,42 @@ def insertCodingLine(encoding, script):
             lines.insert(0, '%s %s -*-\n' % (tag, encoding))
             script = ''.join(lines)
     return script
+#@+node:ekr.20180217113719.1: *3* g.runExternalProgram
+def runExternalCommands(c, commands,
+    base_dir = None,
+    path_setting = None,
+    warning = None,
+):
+    '''
+    A helper for prototype commands or any other code that
+    runs programs in a separate process.
+    
+    base_dir:       Base directory to use if no config path given.
+    commands:       A string or list of commands, for g.execute_shell_commands.
+    path_setting:   Name of @string setting for the base directory.
+    warning:        A warning to be printed before executing the commands.
+    '''
+    if not base_dir and not path_setting:
+        return g.es_print('Please use base_dir, path_setting or both')
+    if path_setting and not c:
+        return g.es_print('path_setting requires valid c arg')
+    if path_setting:
+        base_dir = c.config.getString(path_setting)
+        if base_dir:
+            base_dir = base_dir.replace('\\','/')
+            if not g.os_path_exists(base_dir):
+                return g.es_print('@string path-setting not found: %r' % base_dir)
+        else:
+            return g.es_print('setting not found: @string %s' % path_setting)
+    else:
+        base_dir = base_dir.replace('\\','/')
+        if not g.os_path_exists(base_dir):
+            return g.es_print('base_dir not found: %r' % base_dir)
+    if warning:
+        g.es_print(warning)
+    os.chdir(base_dir) # Can't do this in the commands list.
+    g.execute_shell_commands(commands)
+
 #@+node:ekr.20070524083513: ** g.Unit Tests
 #@+node:ekr.20100812172650.5909: *3* g.findTestScript
 def findTestScript(c, h, where=None, warn=True):
