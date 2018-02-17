@@ -5,6 +5,7 @@
 #@+<< imports >>
 #@+node:ekr.20180216124319.1: ** << imports >>
 import json
+import traceback
 import webbrowser
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import leo.core.leoBridge as leoBridge
@@ -23,9 +24,13 @@ class LeoHTTPRequestHandler(BaseHTTPRequestHandler):
         else:
             assert self.path == '/get_tree'
             c = self.server.namespace['c']
-            nodes = [{'h':i.h, 'b':i.b} for i in c.p.self_and_siblings()]
-                                      # for i in c.all_positions()
+            nodes = [
+                {'h':i.h, 'b':i.b, 'u':i.v.u, 'gnx':i.gnx}
+                for i in c.p.self_and_siblings()
+                # for i in c.all_positions()
+            ]
             response = {'nodes': nodes}
+            # FIXME: check for failure to JSONify here, particularly uA
             self.wfile.write(json.dumps(response).encode('utf-8'))
     #@+node:ekr.20180216124319.4: *3* do_POST
     def do_POST(self):
@@ -37,14 +42,17 @@ class LeoHTTPRequestHandler(BaseHTTPRequestHandler):
         command = data['cmd']
         if not command:
             return
-        if command[0] == ':':
-            # A statement.
-            exec(data['cmd'][1:], self.server.namespace)
-            response = {'answer': 'OK\n'}
-        else:
-            # An expression.
-            result = eval(command, self.server.namespace)
-            response = {'answer': repr(result)+'\n'}
+        try:
+            if command[0] == ':':
+                # A statement.
+                exec(data['cmd'][1:], self.server.namespace)
+                response = {'answer': 'OK\n'}
+            else:
+                # An expression.
+                result = eval(command, self.server.namespace)
+                response = {'answer': repr(result)+'\n'}
+        except Exception:  # too broad?
+            response = {'answer': traceback.format_exc()+'\n'}
         s = json.dumps(response).encode('utf-8')
         self.wfile.write(s)
     #@-others
