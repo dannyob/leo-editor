@@ -6975,6 +6975,7 @@ def computeBaseDir(c, base_dir, path_setting, trace=False):
         if base_dir2:
             base_dir2 = base_dir.replace('\\','/')
             if g.os_path_exists(base_dir2):
+                if trace: g.trace('@string %s = %s' % (path_setting, base_dir2))
                 return base_dir
             else:
                 return g.es_print('@string %s not found: %r' % (
@@ -6983,6 +6984,7 @@ def computeBaseDir(c, base_dir, path_setting, trace=False):
     assert base_dir, g.callers()
     base_dir = base_dir.replace('\\','/')
     if g.os_path_exists(base_dir):
+        if trace: g.trace('base_dir: %s' % base_dir)
         return base_dir
     else:
         return g.es_print('base_dir not found: %r' % base_dir)
