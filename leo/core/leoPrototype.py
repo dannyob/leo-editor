@@ -13,7 +13,7 @@ import os
 #@+node:ekr.20180217083208.1: ** @g.command('leo-el-vue')
 @g.command('leo-el-vue')
 @g.command('proto-leo-el-vue')
-def leo_el_vue(event):
+def proto_leo_el_vue(event):
     '''
     Vitalije's electron/vue project:: Leo in CoffeeScript and Vue.
     
@@ -25,11 +25,34 @@ def leo_el_vue(event):
     base = base.replace('\\','/')
     commands = [
         # 'npm install',
-        'npm run dev',
+        '&npm run dev',
     ]
     if g.os_path_exists(base):
         os.chdir(base) # Can't do this in the commands list.
         g.execute_shell_commands(commands)
+    else:
+        g.es_print('not found: %r' % base)
+#@+node:ekr.20180217093505.1: ** @g.command('leoserver')
+@g.command('leoserver')
+@g.command('proto-leo-server')
+def proto_leoserver(event):
+    '''
+    Terry's "fully functional Leo web interface :-)
+    
+    First announced here, in a comment to #684:
+    https://github.com/leo-editor/leo-editor/issues/684#issuecomment-363992724
+
+    The code is here:
+    https://github.com/leo-editor/leo-editor/files/1705639/leoserver.zip
+    '''
+    # c = event and event.get('c')
+    base = g.os_path_finalize_join(g.app.loadDir,
+        '..', 'proto', 'Terry', 'leoserver')
+    base = base.replace('\\','/')
+    if g.os_path_exists(base):
+        g.es_print('WARNING: killing the server will also kill Leo')
+        os.chdir(base) # Can't do this in the commands list.
+        g.execute_shell_commands(commands=['&python leoserver.py',])
     else:
         g.es_print('not found: %r' % base)
 #@-others
