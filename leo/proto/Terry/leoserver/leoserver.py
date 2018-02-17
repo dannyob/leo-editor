@@ -1,5 +1,5 @@
 #@+leo-ver=5-thin
-#@+node:ekr.20180216124241.1: * @file c:/leo.repo/leo-editor/leo/external/leoserver/leoserver.py
+#@+node:ekr.20180216124241.1: * @file ../proto/Terry/leoserver/leoserver.py
 #@@language python
 #@@tabwidth -4
 #@+<< imports >>
