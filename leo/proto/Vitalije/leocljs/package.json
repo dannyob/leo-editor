@@ -1,0 +1,16 @@
+{
+  "name": "leo",
+  "version": "0.0.1",
+  "description": "Leo editor re-implemented as electron application",
+  "devDependencies": {
+    "closurecompiler-externs": "^1.0.4",
+    "electron-packager": "^8.5.1",
+    "grunt": "^1.0.1",
+    "grunt-coffee": "0.0.6",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-download-electron": "^2.1.4"
+  },
+  "license": "MIT",
+  "repository": "YOUR_OWN_REPOSITORY"
+}
