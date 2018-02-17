@@ -289,6 +289,8 @@ class Commands(object):
         # Import files to execute @g.commander_command decorators
         import leo.core.leoCompare as leoCompare
         assert leoCompare
+        import leo.core.leoPrototype as leoPrototype
+        assert leoPrototype
         import leo.commands.commanderEditCommands as commanderEditCommands
         assert commanderEditCommands
         import leo.commands.commanderFileCommands as commanderFileCommands
