@@ -65,19 +65,18 @@ def open_bridge():
 controller, g = open_bridge()
 join = g.os_path_finalize_join
 loadDir = g.app.loadDir
+serverDir = join(loadDir, '..', 'proto', 'Terry', 'leoserver')
 #@+<< define STATIC_FILES >>
 #@+node:ekr.20180216125137.1: ** << define STATIC_FILES >>
 STATIC_FILES = {
-    # '/favicon.ico': 'leo/Icons/LeoApp.ico',
     '/favicon.ico': join(loadDir, '..', 'Icons', 'LeoApp.ico'),
     # '/index.html': 'leoserver.html',
-    '/index.html': join(loadDir, '..', 'external', 'leoserver', 'leoserver.html'),
+    '/index.html': join(serverDir, 'leoserver.html'),
     # '/leoserver.js': 'leoserver.js',
-    # '/leoserver.js': 'c:/test/Terry/leoserver.js',
-    '/leoserver.js': join(loadDir,'..', 'external', 'leoserver', 'leoserver.js'),
+    '/leoserver.js': join(serverDir, 'leoserver.js'),
     # '/leoserver.css': 'leoserver.css',
-    # '/leoserver.css': 'c:/test/Terry/leoserver.css',
-    '/leoserver.css': join(loadDir,'..', 'external', 'leoserver', 'leoserver.css'),
+    '/leoserver.css': join(serverDir, 'leoserver.css'),
+    
 }
 
 #@-<< define STATIC_FILES >>
