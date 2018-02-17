@@ -6929,7 +6929,7 @@ def insertCodingLine(encoding, script):
             lines.insert(0, '%s %s -*-\n' % (tag, encoding))
             script = ''.join(lines)
     return script
-#@+node:ekr.20180217113719.1: *3* g.runExternalProgram
+#@+node:ekr.20180217113719.1: *3* g.runExternalCommands
 def runExternalCommands(c, commands,
     base_dir = None,
     path_setting = None,
