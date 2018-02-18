@@ -34,6 +34,8 @@ def proto_leo_el_vue(event):
         for the result.
         
         Defaults to &npm run dev
+        
+        `yarn dev` is faster. `npm -g yarn` installs yarn globally.
     '''
     c = event and event.get('c')
     base_dir = g.os_path_finalize_join(g.app.loadDir,
