@@ -45,7 +45,7 @@ def proto_leo_cljs(event):
         one per line, from the base directory. Preceding any command with
         '&' causes Leo not to wait for the result.
         
-        Defaults to `lein figwheel`
+        Defaults to `&lein figwheel`
     '''
     c = event and event.get('c')
     base_dir = g.os_path_finalize_join(g.app.loadDir,
