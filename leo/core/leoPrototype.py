@@ -10,30 +10,25 @@ The docstrings for various commands are reference documentation.
 import leo.core.leoGlobals as g
 # import os
 #@+others
-#@+node:ekr.20180218012825.1: ** @g.command('leo-cljs') NEW
+#@+node:ekr.20180218012825.1: ** @g.command('leo-cljs')
 @g.command('leo-cljs')
 @g.command('proto-leo-cljs')
 def proto_leo_cljs(event):
     '''
     Vitalije's clojurescript project, using electron and Om/React.
+    See #733 for how to build and run this project.
     
-    First announced here:
-    https://groups.google.com/d/msg/leo-editor/Isd93qGd-RU/SaQoVv7gCQAJ
+    **Summary**
     
-    Original sources and documentation at:
-    https://repo.computingart.net/leocljs/tree?ci=tip
+    - Build the app *once*: `leocljs>lein descjop-once-dev`
+    - Run the app using two *separate* consoles:
+
+        Console 1: `leocljs>lein descjop-figwheel`
+            - A prompt will appear when the app loads.
+            - Close console 1 *after* closing console 2.
     
-    **Installation**
-    
-    - Install leiningen: https://leiningen.org/
-    - Install java: https://java.com/en/
-    
-    This post discusses running this project: (I am having trouble)
-    https://groups.google.com/d/msg/leo-editor/Isd93qGd-RU/tnRajD7qCQAJ
-    
-    This post gives complete build instructions.
-    https://groups.google.com/d/msg/leo-editor/wAmZfFCQWVU/mwhMfQ_LCgAJ
-    
+        Console2:  `leocljs>electron app\dev`
+
     **Settings**
         
     @string leo-cljs-base = None
