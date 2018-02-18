@@ -1,2 +1,5 @@
 node_modules/*
 dist/*
+app/*
+target/*
+figwheel_server.log

@@ -23,6 +23,14 @@ def proto_leo_cljs(event):
     Original sources and documentation at:
     https://repo.computingart.net/leocljs/tree?ci=tip
     
+    This page discusses running this project: (I am having trouble)
+    https://groups.google.com/d/msg/leo-editor/Isd93qGd-RU/tnRajD7qCQAJ
+    
+    Dependencies and installation:
+        
+    - Install leiningen: https://leiningen.org/
+    - Install java: https://java.com/en/
+    
     The following settings affect this command, with the defaults as shown:
         
     @string leo-cljs-base = None
@@ -47,7 +55,7 @@ def proto_leo_cljs(event):
     g.execute_shell_commands_with_options(
         c = c,
         base_dir=base_dir,
-        commands = ['&yarn',], # &yarn dev ??
+        commands = ['&lein figwheel',],
         command_setting = 'leocljs-commands',
             # @data leo-el-vue-commands
         path_setting= 'leocljs-base',
