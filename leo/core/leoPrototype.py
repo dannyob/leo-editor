@@ -18,6 +18,22 @@ def proto_leo_el_vue(event):
     Vitalije's electron/vue project:: Leo in CoffeeScript and Vue.
     
     Original sources and documentation at: https://leoelvue.computingart.net/home
+    
+    The following settings affect this command, with the defaults as shown:
+        
+    @string leo-el-vue-base = None
+    
+        The path to the folder containing the leo-el-vue folder.
+        
+        Defaults to leo/proto/Vitalize/leo-el-vue
+        
+    @data leo-el-vue-commands
+    
+        The body text of this setting contains the commands to be executed,
+        one per line. Preceding any command with '&' causes Leo not to wait
+        for the result.
+        
+        Defaults to &npm run dev
     '''
     c = event and event.get('c')
     base_dir = g.os_path_finalize_join(g.app.loadDir,
