@@ -25,7 +25,7 @@ def proto_leo_el_vue(event):
     
         The path to the folder containing the leo-el-vue folder.
         
-        Defaults to leo/proto/Vitalize/leo-el-vue
+        Defaults to leo/proto/Vitalije/leo-el-vue
         
     @data leo-el-vue-commands
     
