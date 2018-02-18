@@ -376,7 +376,7 @@
             (resize-body-editor elem)
             (set! (.-mode cminst) "python")))))
 ;@-others
-(get-leo-doc "line-numbering.leo")
+(get-leo-doc "leocljs-ref.leo")
 (defn mount-root [setting]
   (om/root
    (fn [state owner]
