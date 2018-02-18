@@ -23,15 +23,18 @@ def proto_leo_cljs(event):
     Original sources and documentation at:
     https://repo.computingart.net/leocljs/tree?ci=tip
     
-    This page discusses running this project: (I am having trouble)
-    https://groups.google.com/d/msg/leo-editor/Isd93qGd-RU/tnRajD7qCQAJ
+    **Installation**
     
-    Dependencies and installation:
-        
     - Install leiningen: https://leiningen.org/
     - Install java: https://java.com/en/
     
-    The following settings affect this command, with the defaults as shown:
+    This post discusses running this project: (I am having trouble)
+    https://groups.google.com/d/msg/leo-editor/Isd93qGd-RU/tnRajD7qCQAJ
+    
+    This post gives complete build instructions.
+    https://groups.google.com/d/msg/leo-editor/wAmZfFCQWVU/mwhMfQ_LCgAJ
+    
+    **Settings**
         
     @string leo-cljs-base = None
     
