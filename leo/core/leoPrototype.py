@@ -27,7 +27,7 @@ def proto_leo_cljs(event):
             - A prompt will appear when the app loads.
             - Close console 1 *after* closing console 2.
     
-        Console2:  `leocljs>electron app\dev`
+        Console2:  `leocljs>electron app/dev`
 
     **Settings**
         
@@ -142,5 +142,37 @@ def proto_leoserver(event):
             # @string leoserver-base
     )
 
+#@+node:ekr.20180218232508.1: ** @g.command('leovue')
+@g.command('leovue')
+@g.command('proto-leovue')
+def proto_leovue(event):
+    '''
+    Joe Orr's prootype of Leo using vue.js.
+
+    **Building instructions**
+    
+        See #735: https://github.com/leo-editor/leo-editor/issues/735
+
+    **@settings**
+        
+        @string leovue-base = None
+        
+            The path to the **base directory**, the top-level leovue folder.
+            There is no default. You must set this setting.
+            
+        @data leo-el-vue-commands
+            
+            Defaults to &npm run dev
+    '''
+    c = event and event.get('c')
+    g.execute_shell_commands_with_options(
+        c = c,
+        base_dir=None,
+        commands = ['&npm run dev',],
+        command_setting = 'leovue-commands',
+            # @data leovue-commands
+        path_setting= 'leovue-base',
+            # @string leovue-base
+    )
 #@-others
 #@-leo
