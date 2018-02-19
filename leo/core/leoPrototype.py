@@ -147,9 +147,9 @@ def proto_leoserver(event):
 @g.command('proto-leovue')
 def proto_leovue(event):
     '''
-    Joe Orr's prootype of Leo using vue.js.
+    Joe Orr's prototype of Leo using vue.js.
 
-    **Building instructions**
+    **Build instructions**
     
         See #735: https://github.com/leo-editor/leo-editor/issues/735
 
