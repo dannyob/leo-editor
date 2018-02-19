@@ -152,6 +152,10 @@ def proto_leovue(event):
     **Build instructions**
     
         See #735: https://github.com/leo-editor/leo-editor/issues/735
+        
+        Summary:
+            npm install
+            npm run dev
 
     **@settings**
         
