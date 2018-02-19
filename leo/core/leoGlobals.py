@@ -6729,7 +6729,7 @@ def computeBaseDir(c, base_dir, path_setting, trace=False):
         # It's not an error for the setting to be empty.
         base_dir2 = c.config.getString(path_setting)
         if base_dir2:
-            base_dir2 = base_dir.replace('\\','/')
+            base_dir2 = base_dir2.replace('\\','/')
             if g.os_path_exists(base_dir2):
                 if trace: g.trace('@string %s = %s' % (path_setting, base_dir2))
                 return base_dir2
